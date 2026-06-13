@@ -6,12 +6,12 @@ site:
 
 home:
   hero_title_pre: "Make sugar"
-  hero_title_em: "history."
+  hero_title_em: "history of 西西弗斯."
   hero_lead: >
     We are engineering microbes to brew brazzein — a tiny, heat-stable
     protein from a West African berry that tastes intensely sweet, yet
     carries no calories and no metabolic cost.
-  sweetness_value: "≈2000"
+  sweetness_value: "≈1400"
   sweetness_unit: "× sugar"
   sweetness_caption: >
     A pinch does the work of a spoonful. Brazzein stays sweet even after
