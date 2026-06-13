@@ -1,11 +1,3 @@
-# =====================================================================
-#  Brazzein iGEM Wiki — 内容源 / 各组填料模板
-#  各组只改本文件，不要碰其它文件。改完 commit，网站自动更新。
-#   - 引号里的文字替换成真实内容
-#   - [方括号] 是必须替换的占位
-#   - # 开头是注释，不会出现在网站上
-# =====================================================================
-
 site:
   team_name: "SweetCraft"
   project_name: "Brazzein"
@@ -101,19 +93,43 @@ team:
     - {name: "[PI Name]",  role: "Principal Investigator"}
     - {name: "Advisors",   role: "Mentors & instructors"}
 
-attributions:
-  heading: "Who did what"
-  paragraphs:
-    - "This wiki and the work behind it were created by the student members of the team, with guidance from our instructors and advisors."
-    - "We gratefully acknowledge the support of our host institution, the iGEM community, and everyone who shared their time and expertise during our Human Practices work."
-
 parts:
   heading: "Our parts in the Registry"
   lead: "Every construct we build is documented as a reusable part, so the next team can stand on our work."
   intro: "The collection below covers the coding sequence, secretion and expression composites, and the screening tools we used. Part IDs are placeholders until registered."
   items:
     - {id: "BBa_K000001", name: "Brazzein (codon-optimised CDS)", type: "Coding", desc: "Mature 54-residue brazzein, codon-optimised for our yeast chassis."}
-    - {id: "BBa_K000002", name: "α-factor signal + Brazzein", type: "Composite", desc: "Secretion construct: exports folded brazzein into the medium."}
+    - {id: "BBa_K000002", name: "alpha-factor signal + Brazzein", type: "Composite", desc: "Secretion construct: exports folded brazzein into the medium."}
     - {id: "BBa_K000003", name: "AOX1 promoter + Brazzein", type: "Composite", desc: "Methanol-inducible expression cassette for Pichia pastoris."}
     - {id: "BBa_K000004", name: "His-tagged Brazzein", type: "Coding", desc: "C-terminal His-tag variant for affinity purification."}
-    - {id: "BBa_K000005", name: "T7 + Brazzein (E. coli)", type: "Composite", desc: "Rapid screening cons
+    - {id: "BBa_K000005", name: "T7 + Brazzein (E. coli)", type: "Composite", desc: "Rapid screening construct for inclusion-body expression."}
+    - {id: "BBa_K000006", name: "GFP-Brazzein fusion", type: "Reporter", desc: "Fluorescent fusion for tracking secretion in real time."}
+
+model:
+  heading: "Models that guide the bench"
+  lead: "We use computation to choose what to build next, not just to explain what we built."
+  intro: "Three modelling threads run alongside the wet lab, each feeding a concrete decision."
+  approaches:
+    - title: "Structure & folding"
+      text: "Modelling brazzein's three disulphide bonds to flag mutations that would destabilise the fold before we clone them."
+    - title: "Sweetness interface"
+      text: "Mapping the residues that contact the sweet-taste receptor (T1R2-T1R3) to prioritise sweetness-enhancing mutations."
+    - title: "Expression kinetics"
+      text: "A simple ODE model of induction and secretion to estimate optimal induction time and predict yield."
+
+notebook:
+  heading: "From idea to tasting glass"
+  lead: "A condensed timeline of the project. Full protocols live in the lab notebook."
+  entries:
+    - {date: "Feb", title: "Project framing", text: "Chose brazzein after reviewing heat-stable sweet proteins; defined the sugar-reduction problem."}
+    - {date: "Mar", title: "Construct design", text: "Codon-optimised the gene and designed secretion and screening constructs in silico."}
+    - {date: "Apr", title: "Build & transform", text: "Assembled BioBrick-compatible parts; transformed yeast and E. coli hosts."}
+    - {date: "May", title: "Expression & purification", text: "First detectable recombinant brazzein; optimised induction and purification."}
+    - {date: "Jun", title: "Characterisation", text: "SDS-PAGE, thermal melts and an initial sensory panel on purified protein."}
+    - {date: "Jul", title: "Human Practices", text: "Interviews with food scientists and dietitians; fed findings back into design."}
+
+attributions:
+  heading: "Who did what"
+  paragraphs:
+    - "This wiki and the work behind it were created by the student members of the team, with guidance from our instructors and advisors."
+    - "We gratefully acknowledge the support of our host institution, the iGEM community, and everyone who shared their time and expertise during our Human Practices work."
