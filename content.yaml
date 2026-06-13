@@ -1,0 +1,119 @@
+# =====================================================================
+#  Brazzein iGEM Wiki — 内容源 / 各组填料模板
+#  各组只改本文件，不要碰其它文件。改完 commit，网站自动更新。
+#   - 引号里的文字替换成真实内容
+#   - [方括号] 是必须替换的占位
+#   - # 开头是注释，不会出现在网站上
+# =====================================================================
+
+site:
+  team_name: "SweetCraft"
+  project_name: "Brazzein"
+  year: 2025
+  tagline: "A heat-stable sweet protein, brewed by design."
+
+home:
+  hero_title_pre: "Make sugar"
+  hero_title_em: "history."
+  hero_lead: >
+    We are engineering microbes to brew brazzein — a tiny, heat-stable
+    protein from a West African berry that tastes intensely sweet, yet
+    carries no calories and no metabolic cost.
+  sweetness_value: "≈2000"
+  sweetness_unit: "× sugar"
+  sweetness_caption: >
+    A pinch does the work of a spoonful. Brazzein stays sweet even after
+    baking and boiling, where most sweet proteins fall apart.
+
+project:
+  heading: "Sweetness without the sugar tax on health"
+  lead: >
+    The world eats far more added sugar than is good for it. Brazzein offers
+    a different kind of sweet — but nature makes too little of it. So we make our own.
+  problem:
+    title: "The problem"
+    intro: "Excess added sugar drives obesity, type-2 diabetes and dental disease. Yet the alternatives aren't clean wins:"
+    points:
+      - "Many artificial sweeteners carry a bitter aftertaste and lingering safety debates."
+      - "Natural sweet proteins exist, but most denature when heated — useless for cooking or baking."
+      - "Brazzein is heat-stable and natural, but the wild berry (Pentadiplandra brazzeana) can't be farmed at scale."
+  solution:
+    title: "Our solution"
+    intro: "Move brazzein out of the rainforest and into a fermenter. We express the protein in microbial hosts and tune it for yield, sweetness and stability."
+    points:
+      - "Recombinant production in a food-relevant yeast chassis, with E. coli for rapid screening."
+      - "Codon- and signal-optimised constructs for efficient secretion."
+      - "A characterisation pipeline linking sequence changes to perceived sweetness and thermal stability."
+
+design:
+  heading: "How we build a sweeter protein"
+  lead: "Four design pillars carry the project from gene to tasting glass. Each is a place where biology meets food science."
+  pillars:
+    - title: "Chassis selection"
+      text: "Comparing a secreting yeast against an E. coli screening strain to balance yield, folding of the three disulphide bonds, and food-safety."
+    - title: "Expression & secretion"
+      text: "Signal peptides and promoters chosen so the cell exports folded brazzein into the medium, simplifying purification."
+    - title: "Sequence engineering"
+      text: "Targeted mutations at known sweetness-determining residues to probe — and ideally raise — perceived sweetness."
+    - title: "Characterisation"
+      text: "SDS-PAGE, thermal melts and a structured sensory panel tie every construct back to a measurable sweetness and stability profile."
+
+engineering:
+  heading: "Design — Build — Test — Learn"
+  lead: "iGEM's engineering cycle is the spine of our wet lab. One representative turn of the wheel:"
+  dbtl:
+    - {letter: "D", title: "Design",  text: "Pick a secretion signal and codon-optimise the brazzein gene for our chassis."}
+    - {letter: "B", title: "Build",   text: "Assemble the construct as a BioBrick-compatible part and transform the host."}
+    - {letter: "T", title: "Test",    text: "Express, purify and measure yield, band size and thermal stability."}
+    - {letter: "L", title: "Learn",   text: "Low secretion → revisit the signal peptide, feeding the next design."}
+
+results:
+  heading: "What we found"
+  lead: "Representative figures from our characterisation runs. Final numbers land as the wet lab wraps up."
+  stats:
+    - {value: "6.5 kDa", label: "Recombinant brazzein confirmed on SDS-PAGE"}
+    - {value: "80 °C",   label: "Sweetness retained after heat challenge"}
+    - {value: "12",      label: "Characterised constructs in the registry"}
+  note: "Placeholder data — swap in real figures and plots before submission."
+
+human_practices:
+  heading: "Who is this sweetener really for?"
+  paragraphs:
+    - "We spoke with food scientists, dietitians and people living with diabetes to understand whether a protein sweetener would actually fit real kitchens and real diets — not just a lab bench."
+    - "Their input reshaped our goals: heat-stability moved to the top of the list, and regulatory and labelling questions became part of the design conversation rather than an afterthought."
+
+safety:
+  heading: "Built to be safe by design"
+  paragraphs:
+    - "We work only with non-pathogenic, well-characterised lab chassis under standard institutional biosafety oversight. No part of the project involves toxins, pathogens or environmental release."
+    - "Because brazzein is intended as a food-relevant protein, we consider allergenicity and food-safety frameworks early, and document handling and disposal in line with iGEM's safety rules."
+
+team:
+  heading: "The people behind the protein"
+  lead: "A student-led team of biologists, engineers and designers — with mentors keeping us honest."
+  members:
+    - {name: "Zhang Wei", role: "Wet Lab Lead"}
+    - {name: "[Member B]", role: "Modelling"}
+    - {name: "[Member C]", role: "Human Practices"}
+    - {name: "[Member D]", role: "Wiki & Design"}
+    - {name: "[Member E]", role: "Hardware"}
+    - {name: "[Member F]", role: "Outreach"}
+    - {name: "[PI Name]",  role: "Principal Investigator"}
+    - {name: "Advisors",   role: "Mentors & instructors"}
+
+attributions:
+  heading: "Who did what"
+  paragraphs:
+    - "This wiki and the work behind it were created by the student members of the team, with guidance from our instructors and advisors."
+    - "We gratefully acknowledge the support of our host institution, the iGEM community, and everyone who shared their time and expertise during our Human Practices work."
+
+parts:
+  heading: "Our parts in the Registry"
+  lead: "Every construct we build is documented as a reusable part, so the next team can stand on our work."
+  intro: "The collection below covers the coding sequence, secretion and expression composites, and the screening tools we used. Part IDs are placeholders until registered."
+  items:
+    - {id: "BBa_K000001", name: "Brazzein (codon-optimised CDS)", type: "Coding", desc: "Mature 54-residue brazzein, codon-optimised for our yeast chassis."}
+    - {id: "BBa_K000002", name: "α-factor signal + Brazzein", type: "Composite", desc: "Secretion construct: exports folded brazzein into the medium."}
+    - {id: "BBa_K000003", name: "AOX1 promoter + Brazzein", type: "Composite", desc: "Methanol-inducible expression cassette for Pichia pastoris."}
+    - {id: "BBa_K000004", name: "His-tagged Brazzein", type: "Coding", desc: "C-terminal His-tag variant for affinity purification."}
+    - {id: "BBa_K000005", name: "T7 + Brazzein (E. coli)", type: "Composite", desc: "Rapid screening cons
