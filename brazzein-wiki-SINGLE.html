@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brazzein · iGEM 2025</title>
+<style>
+/* =====================================================================
+   Brazzein iGEM Wiki — 自托管样式（不依赖 CDN，符合 iGEM 资源限制）
+   配色：浆果墨 / 蜂蜜琥珀 / 浆果红 / 植物绿，铺于暖纸底
+   字体：系统衬线作标题、系统无衬线作正文（可后续替换为自托管字体）
+   ===================================================================== */
+:root{
+  --paper:#faf5ee; --paper2:#f3e9da;
+  --ink:#2e1a22; --ink-soft:#6a5158;
+  --honey:#dc8a2e; --honey-deep:#b86d18;
+  --berry:#b4344a; --green:#3d6b4f;
+  --card:#fffdf9; --line:rgba(46,26,34,.12);
+  --serif:Georgia,&#34;Iowan Old Style&#34;,&#34;Palatino Linotype&#34;,Palatino,&#34;Times New Roman&#34;,serif;
+  --sans:system-ui,-apple-system,&#34;Segoe UI&#34;,Roboto,&#34;Helvetica Neue&#34;,Arial,sans-serif;
+  --wrap:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--paper); color:var(--ink); font-family:var(--sans); line-height:1.6; -webkit-font-smoothing:antialiased;}
+a{color:inherit; text-decoration:none;}
+.wrap{max-width:var(--wrap); margin:0 auto; padding:0 26px;}
+.eyebrow{font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--honey-deep);}
+h2{font-family:var(--serif); font-weight:600; font-size:clamp(30px,5vw,46px); line-height:1.06; letter-spacing:-.5px;}
+.lead{font-size:18px; color:var(--ink-soft); max-width:62ch; margin-top:14px;}
+
+/* ---------- nav ---------- */
+header{position:sticky; top:0; z-index:50; background:rgba(250,245,238,.86); backdrop-filter:blur(12px); border-bottom:1px solid var(--line);}
+.nav{display:flex; align-items:center; justify-content:space-between; height:64px;}
+.logo{font-family:var(--serif); font-weight:700; font-size:22px; letter-spacing:-.5px; display:flex; align-items:center; gap:9px;}
+.logo .dot{width:11px; height:11px; border-radius:50%; background:var(--berry); box-shadow:0 0 0 4px rgba(180,52,74,.16);}
+.nav-links{display:flex; gap:24px; font-size:14.5px; font-weight:500;}
+.nav-links a{color:var(--ink-soft); transition:color .15s; padding-bottom:2px; border-bottom:2px solid transparent;}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a.active{color:var(--ink); border-bottom-color:var(--honey);}
+.menu-btn{display:none; background:none; border:none; font-size:26px; color:var(--ink); cursor:pointer;}
+
+/* ---------- hero ---------- */
+.hero{padding:78px 0 70px;}
+.hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:44px; align-items:center;}
+.hero h1{font-family:var(--serif); font-weight:700; font-size:clamp(44px,8vw,84px); line-height:1; letter-spacing:-2px; margin:14px 0 18px;}
+.hero h1 em{font-style:italic; font-weight:600; color:var(--berry);}
+.hero p{font-size:19px; color:var(--ink-soft); max-width:46ch; margin-bottom:28px;}
+.cta{display:flex; gap:12px; flex-wrap:wrap;}
+.btn{display:inline-block; padding:13px 24px; border-radius:999px; font-weight:600; font-size:15px; transition:transform .12s;}
+.btn:active{transform:scale(.97);}
+.btn-solid{background:var(--ink); color:var(--paper);}
+.btn-ghost{border:1.5px solid var(--line); color:var(--ink);}
+
+/* signature: sweetness stat */
+.sweet{background:linear-gradient(165deg,var(--honey),var(--honey-deep)); color:#fff; border-radius:22px; padding:34px 30px; box-shadow:0 24px 60px -24px rgba(184,109,24,.6);}
+.sweet .k{font-size:13px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; opacity:.85;}
+.sweet .big{font-family:var(--serif); font-weight:700; font-size:clamp(58px,12vw,92px); line-height:.9; margin:6px 0 2px;}
+.sweet .big small{font-size:.42em; font-weight:600;}
+.sweet .sub{font-size:15px; opacity:.92; line-height:1.5; border-top:1px solid rgba(255,255,255,.28); margin-top:18px; padding-top:16px;}
+.sweet .bars{display:flex; align-items:flex-end; gap:8px; height:54px; margin-top:18px;}
+.sweet .bar{flex:1; background:rgba(255,255,255,.32); border-radius:4px 4px 0 0;}
+.sweet .bar.lit{background:#fff;}
+
+/* ---------- page header ---------- */
+.page-head{padding:64px 0 8px;}
+.page-head h2{margin:12px 0 0;}
+
+/* ---------- content block ---------- */
+.block{padding:40px 0 70px;}
+
+.split{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+.panel{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:30px;}
+.panel h3{font-family:var(--serif); font-size:23px; font-weight:600; margin-bottom:10px;}
+.panel.problem{border-left:4px solid var(--berry);}
+.panel.solution{border-left:4px solid var(--green);}
+.panel p{color:var(--ink-soft); font-size:15.5px;}
+.panel ul{list-style:none; margin-top:14px; font-size:15px;}
+.panel li{padding:7px 0 7px 24px; position:relative; color:var(--ink-soft);}
+.panel li::before{content:&#34;&#34;; position:absolute; left:2px; top:14px; width:7px; height:7px; border-radius:50%; background:var(--honey);}
+
+.cards{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+.card-i{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:26px; transition:transform .18s, box-shadow .18s;}
+.card-i:hover{transform:translateY(-3px); box-shadow:0 18px 40px -22px rgba(46,26,34,.35);}
+.card-i .num{font-family:var(--serif); font-style:italic; font-size:15px; color:var(--honey-deep);}
+.card-i h3{font-family:var(--serif); font-size:22px; font-weight:600; margin:6px 0 10px;}
+.card-i p{font-size:14.5px; color:var(--ink-soft);}
+
+.dbtl{display:grid; grid-template-columns:repeat(4,1fr);}
+.dbtl-step{text-align:center; padding:0 14px; position:relative;}
+.dbtl-step .ring{width:78px; height:78px; margin:0 auto 16px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:700; font-size:30px; color:#fff; position:relative; z-index:2;}
+.dbtl-step:nth-child(1) .ring{background:var(--berry);}
+.dbtl-step:nth-child(2) .ring{background:var(--honey);}
+.dbtl-step:nth-child(3) .ring{background:var(--green);}
+.dbtl-step:nth-child(4) .ring{background:var(--ink);}
+.dbtl-step::after{content:&#34;\2192&#34;; position:absolute; right:-8px; top:28px; font-size:22px; color:var(--ink-soft); z-index:1;}
+.dbtl-step:last-child::after{content:&#34;&#34;;}
+.dbtl-step h4{font-size:16px; font-weight:600; margin-bottom:5px;}
+.dbtl-step p{font-size:13.5px; color:var(--ink-soft);}
+
+.stats{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+.stat{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:26px;}
+.stat .v{font-family:var(--serif); font-weight:700; font-size:42px; line-height:1; color:var(--berry);}
+.stat .l{font-size:13px; color:var(--ink-soft); margin-top:8px;}
+.note{display:inline-block; margin-top:22px; font-size:13px; color:var(--honey-deep); background:rgba(220,138,46,.1); border:1px dashed var(--honey); border-radius:8px; padding:8px 14px;}
+
+.twocol{display:grid; grid-template-columns:1fr 1fr; gap:30px;}
+.twocol p{color:var(--ink-soft); font-size:16px;}
+
+.team-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+.member{text-align:center;}
+.avatar{aspect-ratio:1; border-radius:14px; background:linear-gradient(150deg,var(--paper2),#e7d6c2); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-size:34px; color:var(--ink-soft); margin-bottom:10px;}
+.member .n{font-weight:600; font-size:15px;}
+.member .r{font-size:13px; color:var(--ink-soft);}
+
+/* footer */
+footer{background:var(--ink); color:#e9ddd6; padding:54px 0 34px; margin-top:10px;}
+footer .ft{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;}
+footer .logo{color:#fff;}
+footer .ft-tag{max-width:30ch; margin-top:12px; font-size:14px; color:#cdbcb2;}
+footer a{color:#cdbcb2;} footer a:hover{color:#fff;}
+footer .cols{display:flex; gap:54px; flex-wrap:wrap; font-size:14px;}
+footer .cols b{display:block; color:#fff; margin-bottom:10px; font-size:13px; letter-spacing:.08em; text-transform:uppercase;}
+footer .cols a{display:block; padding:4px 0;}
+.copy{border-top:1px solid rgba(255,255,255,.14); margin-top:34px; padding-top:20px; font-size:13px; color:#a89a90; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+
+/* reveal */
+.reveal{opacity:0; transform:translateY(18px); transition:opacity .6s, transform .6s;}
+.reveal.in{opacity:1; transform:none;}
+
+@media(max-width:860px){
+  .hero-grid,.split,.twocol{grid-template-columns:1fr;}
+  .cards{grid-template-columns:1fr;}
+  .dbtl{grid-template-columns:1fr 1fr; gap:30px 0;}
+  .dbtl-step::after{display:none;}
+  .stats{grid-template-columns:1fr;}
+  .team-grid{grid-template-columns:1fr 1fr;}
+  .nav-links{display:none; position:absolute; top:64px; left:0; right:0; flex-direction:column; background:var(--paper); padding:14px 26px 22px; border-bottom:1px solid var(--line); gap:0;}
+  .nav-links.open{display:flex;}
+  .nav-links a{padding:11px 0; border-bottom:1px solid var(--line);}
+  .nav-links a.active{border-bottom-color:var(--line);}
+  .menu-btn{display:block;}
+}
+@media (prefers-reduced-motion:reduce){ .reveal{opacity:1; transform:none; transition:none;} html{scroll-behavior:auto;} }
+
+/* ---------- parts table ---------- */
+.table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:16px; background:var(--card);}
+table.parts{width:100%; border-collapse:collapse; font-size:14.5px; min-width:560px;}
+table.parts th{text-align:left; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); padding:16px 18px; border-bottom:1px solid var(--line); background:var(--paper2);}
+table.parts td{padding:15px 18px; border-bottom:1px solid var(--line); color:var(--ink-soft); vertical-align:top;}
+table.parts tr:last-child td{border-bottom:none;}
+table.parts .pid{font-family:ui-monospace,&#34;SF Mono&#34;,monospace; color:var(--berry); white-space:nowrap;}
+table.parts .tag{display:inline-block; font-size:12px; padding:3px 10px; border-radius:999px; background:rgba(61,107,79,.12); color:var(--green); font-weight:600;}
+
+/* ---------- notebook timeline ---------- */
+.timeline{position:relative; max-width:760px; padding-left:8px;}
+.timeline::before{content:&#34;&#34;; position:absolute; left:60px; top:8px; bottom:8px; width:2px; background:var(--line);}
+.tl-item{display:grid; grid-template-columns:64px 1fr; gap:24px; padding:14px 0; position:relative;}
+.tl-date{font-family:var(--serif); font-weight:700; font-size:18px; color:var(--honey-deep); text-align:right; padding-top:2px;}
+.tl-body{position:relative;}
+.tl-body::before{content:&#34;&#34;; position:absolute; left:-30px; top:7px; width:13px; height:13px; border-radius:50%; background:var(--honey); box-shadow:0 0 0 4px var(--paper);}
+.tl-body h4{font-size:17px; font-weight:600; margin-bottom:4px;}
+.tl-body p{font-size:14.5px; color:var(--ink-soft);}
+@media(max-width:860px){
+  .timeline::before{left:46px;}
+  .tl-item{grid-template-columns:46px 1fr; gap:18px;}
+  .tl-date{font-size:15px;}
+  .tl-body::before{left:-24px;}
+}
+
+[hidden]{display:none !important;}
+.page{animation:fade .35s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#home" data-page="home" class="logo"><span class="dot"></span>Brazzein</a>
+    <nav class="nav-links" id="menu">
+      <a href="#home" data-page="home" class="active">Home</a>
+      <a href="#project" data-page="project">Project</a>
+      <a href="#design" data-page="design">Design</a>
+      <a href="#parts" data-page="parts">Parts</a>
+      <a href="#model" data-page="model">Model</a>
+      <a href="#engineering" data-page="engineering">Engineering</a>
+      <a href="#results" data-page="results">Results</a>
+      <a href="#notebook" data-page="notebook">Notebook</a>
+      <a href="#human-practices" data-page="human-practices">Human Practices</a>
+      <a href="#safety" data-page="safety">Safety</a>
+      <a href="#team" data-page="team">Team</a>
+      <a href="#attributions" data-page="attributions">Attributions</a>
+    </nav>
+    <button class="menu-btn" id="mbtn" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main>
+<div class="page" id="page-home">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">iGEM 2025 · Sweet Proteins</span>
+      <h1>Make sugar <em>optional.</em></h1>
+      <p>We are engineering microbes to brew brazzein — a tiny, heat-stable protein from a West African berry that tastes intensely sweet, yet carries no calories and no metabolic cost.
+</p>
+      <div class="cta">
+        <a href="project.html" data-go="project.html" class="btn btn-solid">Explore the project</a>
+        <a href="team.html" data-go="team.html" class="btn btn-ghost">Meet the team</a>
+      </div>
+    </div>
+    <div class="sweet reveal">
+      <div class="k">Sweetness, gram for gram</div>
+      <div class="big">≈1000<small>× sugar</small></div>
+      <div class="bars">
+        <div class="bar" style="height:6%"></div><div class="bar" style="height:14%"></div>
+        <div class="bar" style="height:30%"></div><div class="bar" style="height:55%"></div>
+        <div class="bar lit" style="height:100%"></div>
+      </div>
+      <div class="sub">A pinch does the work of a spoonful. Brazzein stays sweet even after baking and boiling, where most sweet proteins fall apart.
+</div>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<div class="page" id="page-project" hidden>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Project</span>
+    <h2>Sweetness without the sugar tax on health</h2>
+<p class="lead">The world eats far more added sugar than is good for it. Brazzein offers a different kind of sweet — but nature makes too little of it. So we make our own.
+</p>  </div>
+</section>
+
+<section class="block"><div class="wrap split">
+  <div class="panel problem reveal"><h3>The problem</h3><p>Excess added sugar drives obesity, type-2 diabetes and dental disease. Yet the alternatives aren&#39;t clean wins:</p>
+    <ul><li>Many artificial sweeteners carry a bitter aftertaste and lingering safety debates.</li><li>Natural sweet proteins exist, but most denature when heated — useless for cooking or baking.</li><li>Brazzein is heat-stable and natural, but the wild berry (Pentadiplandra brazzeana) can&#39;t be farmed at scale.</li></ul></div>
+  <div class="panel solution reveal"><h3>Our solution</h3><p>Move brazzein out of the rainforest and into a fermenter. We express the protein in microbial hosts and tune it for yield, sweetness and stability.</p>
+    <ul><li>Recombinant production in a food-relevant yeast chassis, with E. coli for rapid screening.</li><li>Codon- and signal-optimised constructs for efficient secretion.</li><li>A characterisation pipeline linking sequence changes to perceived sweetness and thermal stability.</li></ul></div>
+</div></section>
+
+
+
+</div>
+<div class="page" id="page-design" hidden>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Design</span>
+    <h2>How we build a sweeter protein</h2>
+<p class="lead">Four design pillars carry the project from gene to tasting glass. Each is a place where biology meets food science.</p>  </div>
+</section>
+
+<section class="block"><div class="wrap cards">
+  <div class="card-i reveal"><div class="num">Pillar 1</div><h3>Chassis selection</h3><p>Comparing a secreting yeast against an E. coli screening strain to balance yield, folding of the three disulphide bonds, and food-safety.</p></div>
+  <div class="card-i reveal"><div class="num">Pillar 2</div><h3>Expression &amp; secretion</h3><p>Signal peptides and promoters chosen so the cell exports folded brazzein into the medium, simplifying purification.</p></div>
+  <div class="card-i reveal"><div class="num">Pillar 3</div><h3>Sequence engineering</h3><p>Targeted mutations at known sweetness-determining residues to probe — and ideally raise — perceived sweetness.</p></div>
+  <div class="card-i reveal"><div class="num">Pillar 4</div><h3>Characterisation</h3><p>SDS-PAGE, thermal melts and a structured sensory panel tie every construct back to a measurable sweetness and stability profile.</p></div>
+</div></section>
+
+
+
+</div>
+<div class="page" id="page-parts" hidden>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Parts</span>
+    <h2>Our parts in the Registry</h2>
+<p class="lead">Every construct we build is documented as a reusable part, so the next team can stand on our work.</p>  </div>
+</section>
+
+<section class="block"><div class="wrap">
+<p class="lead" style="margin-bottom:26px">The collection below covers the coding sequence, secretion and expression composites, and the screening tools we used. Part IDs are placeholders until registered.</p>  <div class="table-wrap"><table class="parts">
+    <thead><tr><th>Part ID</th><th>Name</th><th>Type</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr><td class="pid">BBa_K000001</td><td>Brazzein (codon-optimised CDS)</td><td><span class="tag">Coding</span></td><td>Mature 54-residue brazzein, codon-optimised for our yeast chassis.</td></tr>
+    <tr><td class="pid">BBa_K000002</td><td>α-factor signal + Brazzein</td><td><span class="tag">Composite</span></td><td>Secretion construct: exports folded brazzein into the medium.</td></tr>
+    <tr><td class="pid">BBa_K000003</td><td>AOX1 promoter + Brazzein</td><td><span class="tag">Composite</span></td><td>Methanol-inducible expression cassette for Pichia pastoris.</td></tr>
+    <tr><td class="pid">BBa_K000004</td><td>His-tagged Brazzein</td><td><span class="tag">Coding</span></td><td>C-terminal His-tag variant for affinity purification.</td></tr>
+    <tr><td class="pid">BBa_K000005</td><td>T7 + Brazzein (E. coli)</td><td><span class="tag">Composite</span></td><td>Rapid screening construct for inclusion-body expression.</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+
+
+</div>
+<div class="page" id="page-model" hidden>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Model</span>
+    <h2>Models that guide the bench</h2>
+<p class="lead">We use computation to choose what to build next, not just to explain what we built.</p>  </div>
+</section>
+
+<section class="block"><div class="wrap">
+<p class="lead" style="margin-bottom:30px">Three modelling threads run alongside the wet lab, each feeding a concrete decision.</p>  <div class="cards">
+  <div class="card-i reveal"><h3>Structure &amp; folding</h3><p>Modelling brazzein&#39;s three disulphide bonds to flag mutations that would destabilise the fold before we clone them.</p></div>
+  <div class="card-i reveal"><h3>Sweetness interface</h3><p>Mapping the residues that contact the sweet-taste receptor (T1R2–T1R3) to prioritise sweetness-enhancing mutations.</p></div>
+  <div class="card-i reveal"><h3>Expression kinetics</h3><p>A simple ODE model of induction and secretion to estimate optimal induction time and predict yield.</p></div>
+  </div>
+</div></section>
+
+
+
+</div>
+<div class="page" id="page-engineering" hidden>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Engineering</span>
+    <h2>Design — Build — Test — Learn</h2>
+<p class="lead">iGEM&#39;s engineering cycle is the spine of our wet lab. One representative turn of the wheel:</p>  </div>
+</section>
+
+<section class="block"><div class="wrap"><div class="dbtl reveal">
+  <div class="dbtl-step"><div class="ring">D</div><h4>Design</h4><p>Pick a secretion signal and codon-optimise the brazzein gene for our chassis.</p></div>
+  <div class="dbtl-step"><div class="ring">B</div><h4>Build</h4><p>Assemble the construct as a BioBrick-compatible part and transform the host.</p></div>
+  <div class="dbtl-step"><div class="ring">T</div><h4>Test</h4><p>Express, purify and measure yield, band size and thermal stability.</p></div>
+  <div class="dbtl-step"><div class="ring">L</div><h4>Learn</h4><p>Low secretion → revisit the signal peptide, feeding the next design.</p></div>
+</div></div></section>
+
+
+
+</div>
+<div class="page" id="page-results" hidden>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Results</span>
+    <h2>What we found</h2>
+<p class="lead">Representative figures from our characterisation runs. Final numbers land as the wet lab wraps up.</p>  </div>
+</section>
+
+<section class="block"><div class="wrap">
+  <div class="stats">
+  <div class="stat reveal"><div class="v">6.5 kDa</div><div class="l">Recombinant brazzein confirmed on SDS-PAGE</div></div>
+  <div class="stat reveal"><div class="v">80 °C</div><div class="l">Sweetness retained after heat challenge</div></div>
+  <div class="stat reveal"><div class="v">12</div><div class="l">Characterised constructs in the registry</div></div>
+  </div>
+<span class="note">Placeholder data — swap in real figures and plots before submission.</span></div></section>
+
+
+
+</div>
+<div class="page" id="page-notebook" hidden>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Notebook</span>
+    <h2>From idea to tasting glass</h2>
+<p class="lead">A condensed timeline of the project. Full protocols live in the lab notebook.</p>  </div>
+</section>
+
+<section class="block"><div class="wrap"><div class="timeline">
+  <div class="tl-item reveal"><div class="tl-date">Feb</div><div class="tl-body"><h4>Project framing</h4><p>Chose brazzein after reviewing heat-stable sweet proteins; defined the sugar-reduction problem.</p></div></div>
+  <div class="tl-item reveal"><div class="tl-date">Mar</div><div class="tl-body"><h4>Construct design</h4><p>Codon-optimised the gene and designed secretion and screening constructs in silico.</p></div></div>
+  <div class="tl-item reveal"><div class="tl-date">Apr</div><div class="tl-body"><h4>Build &amp; transform</h4><p>Assembled BioBrick-compatible parts; transformed yeast and E. coli hosts.</p></div></div>
+  <div class="tl-item reveal"><div class="tl-date">May</div><div class="tl-body"><h4>Expression &amp; purification</h4><p>First detectable recombinant brazzein; optimised induction and purification.</p></div></div>
+  <div class="tl-item reveal"><div class="tl-date">Jun</div><div class="tl-body"><h4>Characterisation</h4><p>SDS-PAGE, thermal melts and an initial sensory panel on purified protein.</p></div></div>
+  <div class="tl-item reveal"><div class="tl-date">Jul</div><div class="tl-body"><h4>Human Practices</h4><p>Interviews with food scientists and dietitians; fed findings back into design.</p></div></div>
+</div></div></section>
+
+
+
+</div>
+<div class="page" id="page-human-practices" hidden>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Human Practices</span>
+    <h2>Who is this sweetener really for?</h2>
+  </div>
+</section>
+
+<section class="block"><div class="wrap twocol reveal">
+<p>We spoke with food scientists, dietitians and people living with diabetes to understand whether a protein sweetener would actually fit real kitchens and real diets — not just a lab bench.</p><p>Their input reshaped our goals: heat-stability moved to the top of the list, and regulatory and labelling questions became part of the design conversation rather than an afterthought.</p></div></section>
+
+
+
+</div>
+<div class="page" id="page-safety" hidden>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Safety</span>
+    <h2>Built to be safe by design</h2>
+  </div>
+</section>
+
+<section class="block"><div class="wrap twocol reveal">
+<p>We work only with non-pathogenic, well-characterised lab chassis under standard institutional biosafety oversight. No part of the project involves toxins, pathogens or environmental release.</p><p>Because brazzein is intended as a food-relevant protein, we consider allergenicity and food-safety frameworks early, and document handling and disposal in line with iGEM&#39;s safety rules.</p></div></section>
+
+
+
+</div>
+<div class="page" id="page-team" hidden>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Team</span>
+    <h2>The people behind the protein</h2>
+<p class="lead">A student-led team of biologists, engineers and designers — with mentors keeping us honest.</p>  </div>
+</section>
+
+<section class="block"><div class="wrap team-grid reveal">
+  <div class="member"><div class="avatar">M</div><div class="n">[Member A]</div><div class="r">Wet Lab</div></div>
+  <div class="member"><div class="avatar">M</div><div class="n">[Member B]</div><div class="r">Modelling</div></div>
+  <div class="member"><div class="avatar">M</div><div class="n">[Member C]</div><div class="r">Human Practices</div></div>
+  <div class="member"><div class="avatar">M</div><div class="n">[Member D]</div><div class="r">Wiki &amp; Design</div></div>
+  <div class="member"><div class="avatar">M</div><div class="n">[Member E]</div><div class="r">Hardware</div></div>
+  <div class="member"><div class="avatar">M</div><div class="n">[Member F]</div><div class="r">Outreach</div></div>
+  <div class="member"><div class="avatar">P</div><div class="n">[PI Name]</div><div class="r">Principal Investigator</div></div>
+  <div class="member"><div class="avatar">A</div><div class="n">Advisors</div><div class="r">Mentors &amp; instructors</div></div>
+</div></section>
+
+
+</div>
+<div class="page" id="page-attributions" hidden>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Attributions</span>
+    <h2>Who did what</h2>
+  </div>
+</section>
+
+<section class="block"><div class="wrap twocol reveal">
+<p>This wiki and the work behind it were created by the student members of the team, with guidance from our instructors and advisors.</p><p>We gratefully acknowledge the support of our host institution, the iGEM community, and everyone who shared their time and expertise during our Human Practices work.</p></div></section>
+
+
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div>
+        <div class="logo"><span class="dot"></span>Brazzein</div>
+        <p class="ft-tag">A heat-stable sweet protein, brewed by design. iGEM 2025.</p>
+      </div>
+      <div class="cols">
+        <div><b>Project</b>
+          <a href="#project" data-page="project">Description</a>
+          <a href="#design" data-page="design">Design</a>
+          <a href="#engineering" data-page="engineering">Engineering</a>
+          <a href="#results" data-page="results">Results</a></div>
+        <div><b>Team</b>
+          <a href="#team" data-page="team">Members</a>
+          <a href="#human_practices" data-page="human_practices">Human Practices</a>
+          <a href="#safety" data-page="safety">Safety</a>
+          <a href="#attributions" data-page="attributions">Attributions</a></div>
+        <div><b>iGEM</b><a href="https://igem.org" target="_blank" rel="noopener">igem.org</a></div>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2025 [Team Name] · Content licensed under CC BY 4.0</span>
+      <span>Made for the iGEM competition</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var pages=document.querySelectorAll('.page');
+  var links=document.querySelectorAll('[data-page]');
+  var menu=document.getElementById('menu'), mbtn=document.getElementById('mbtn');
+
+  function show(slug){
+    var found=false;
+    pages.forEach(function(p){
+      var on=(p.id==='page-'+slug);
+      p.hidden=!on; if(on)found=true;
+    });
+    if(!found){ // fallback to home
+      slug='home';
+      pages.forEach(function(p){p.hidden=(p.id!=='page-home');});
+    }
+    document.querySelectorAll('.nav-links a').forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('data-page')===slug);
+    });
+    window.scrollTo(0,0);
+    // re-trigger reveal
+    document.querySelectorAll('#page-'+slug+' .reveal').forEach(function(el){el.classList.add('in');});
+  }
+
+  function go(slug){ if(location.hash.slice(1)!==slug){location.hash=slug;} else {show(slug);} }
+
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('[data-page],[data-go]');
+    if(!a)return;
+    e.preventDefault();
+    var slug=a.getAttribute('data-page');
+    if(!slug){ var g=a.getAttribute('data-go')||''; slug=g.replace('.html','').replace('index','home'); }
+    if(menu)menu.classList.remove('open');
+    go(slug);
+  });
+
+  if(mbtn){mbtn.addEventListener('click',function(){menu.classList.toggle('open');});}
+  window.addEventListener('hashchange',function(){show(location.hash.slice(1)||'home');});
+  show(location.hash.slice(1)||'home');
+})();
+</script>
+</body>
+</html>
